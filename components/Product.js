@@ -2,12 +2,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const Product = ({product: {images, title, description, handle}}) => {
-  console.log(handle)
   return (
     <li>
       <Link href={`/products/${handle}`} passHref>
         <a>
-          <Image src={images[0]} alt={title} />
+          <Image src={images[0].src} alt={title} width="200px" height="200px" />
           <h2>{title}</h2>
           <p>{description}</p>
         </a>
