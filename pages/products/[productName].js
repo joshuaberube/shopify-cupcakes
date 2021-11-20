@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Image from 'next/image'
+import Head from 'next/head'
 import { client } from '../../shopifyClient'
 
 export const getStaticProps = async context => {
@@ -29,27 +30,35 @@ const ProductPage = ({product: {images, title, description, options, variants}})
   const [productPrice, setPrice] = useState(variants[0].price)
 
   return (
-    <div>
-      <Image src={images[0].src} alt={title} width="300px" height="300px" />
-      <h2>{title}</h2>
-      <p>{description}</p>
-      <p>${productPrice}</p>
-      <fieldset>
-        <legend>{options[0].name}</legend>
-        {variants.map(({id, title, price}) => (
-          <label key={id}>
-            {title}
-            <input 
-              type="radio" 
-              name={options[0].name} 
-              value={price} 
-              onChange={setPrice.bind(null, price)} 
-              checked={productPrice === price}
-            />
-          </label>
-        ))}
-      </fieldset>
-    </div>
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <main>
+        <Image src={images[0].src} alt={title} width="300px" height="300px" />
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <p>${productPrice}</p>
+        <fieldset className="w-screen">
+          <legend className="mb-2">{options[0].name}</legend>
+          {variants.map(({id, title, price}) => (
+            <label key={id} className="m-2">
+              <input
+                className="hidden peer"
+                type="radio"
+                name={options[0].name}
+                value={price}
+                onChange={setPrice.bind(null, price)}
+                checked={productPrice === price}
+              />
+              <span className="px-4 py-1 bg-gray-200 rounded-full peer-checked:bg-gray-400">{title}</span>
+            </label>
+          ))}
+        </fieldset>
+      </main>
+    </>
   )
 }
 
