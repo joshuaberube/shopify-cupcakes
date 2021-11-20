@@ -53,7 +53,7 @@ const ProductPage = ({product: {images, title, description, options, variants}})
                 onChange={setPrice.bind(null, price)}
                 checked={productPrice === price}
               />
-              <span className="px-4 py-1 bg-gray-200 rounded-full peer-checked:bg-gray-400">{title}</span>
+              <span className="inline-block w-12 text-center bg-gray-200 rounded-full peer-checked:bg-gray-400">{title}</span>
             </label>
           ))}
         </fieldset>
