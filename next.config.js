@@ -1,5 +1,16 @@
 const isProd = process.env.NODE_ENV === 'production'
 
+const csp = `
+  default-src 'none';
+  base-uri 'self';
+  img-src 'self' data: https://cdn.shopify.com;
+  script-src 'self' ${isProd ? '' : "'unsafe-eval'"};
+  style-src 'self' ${isProd ? '' : "'unsafe-inline'"};
+  ${isProd ? '' : "connect-src 'self';"}
+  frame-ancestors 'none';
+  frame-source 'none';
+`
+
 const securityHeaders = [
   {
     key: 'X-Content-Type-Options',
@@ -23,7 +34,7 @@ const securityHeaders = [
   },
   {
     key: 'Content-Security-Policy',
-    value: `default-src 'self'; base-uri 'self'; img-src 'self' data: https://cdn.shopify.com; frame-ancestors 'none'; frame-source 'none'; ${isProd ? '' : "script-src 'self' 'unsafe-eval'; connect-src 'self'; style-src 'self' 'unsafe-inline';"}`
+    value: csp.replace(/\n/gm, '')
   },
   {
     key: 'Feature-Policy',
