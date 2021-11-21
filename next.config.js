@@ -2,13 +2,14 @@ const isProd = process.env.NODE_ENV === 'production'
 
 const csp = `
   default-src 'none';
-  base-uri 'self';
+  base-uri 'none';
   img-src 'self' data: https://cdn.shopify.com;
   script-src 'self' ${isProd ? '' : "'unsafe-eval'"};
   style-src 'self' ${isProd ? '' : "'unsafe-inline'"};
   ${isProd ? '' : "connect-src 'self';"}
   frame-ancestors 'none';
   frame-source 'none';
+  form-action: 'none'
 `
 
 const securityHeaders = [
