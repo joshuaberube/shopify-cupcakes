@@ -5,12 +5,12 @@ const csp = `
   default-src 'none';
   img-src 'self' data: https://cdn.shopify.com;
   script-src 'self' ${isProd ? '' : "'unsafe-eval'"};
-  style-src 'self' ${isProd ? '' : "'unsafe-inline'"};
+  style-src 'self' 'unsafe-inline';
   connect-src 'self';
   prefetch-src 'self';
   frame-src 'none';
   frame-ancestors 'none';
-  form-action: 'none'
+  form-action 'none'
 `
 
 const securityHeaders = [
