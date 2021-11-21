@@ -44,7 +44,7 @@ const ProductPage = ({product: {images, title, description, options, variants}})
         <fieldset className="w-screen">
           <legend className="mb-2">{options[0].name}</legend>
           {variants.map(({id, title, price}) => (
-            <label key={id} className="m-2">
+            <label key={id} className="inline-block mx-2">
               <input
                 className="hidden peer"
                 type="radio"

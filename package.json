@@ -5,21 +5,23 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "axios": "^0.24.0",
     "next": "12.0.4",
+    "next-sitemap": "^1.6.203",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "shopify-buy": "^2.13.0"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.3.4",
     "autoprefixer": "^10.4.0",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.4",
     "postcss": "^8.3.11",
-    "tailwindcss": "^2.2.19",
-    "@tailwindcss/forms": "^0.3.4"
+    "tailwindcss": "^2.2.19"
   }
 }

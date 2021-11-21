@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://shopify-cupcakes-3un3co86x-joshuaberube.vercel.app/
+
+# Sitemaps
+Sitemap: https://shopify-cupcakes-3un3co86x-joshuaberube.vercel.app/sitemap.xml
