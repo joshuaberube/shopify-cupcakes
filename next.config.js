@@ -11,7 +11,7 @@ const securityHeaders = [
   },
   {
     key: 'Content-Security-Policy',
-    value: `default-src 'self'; base-uri 'self'; img-src 'self' https://cdn.shopify.com; ${isProd ? '' : "'unsafe-inline' 'unsafe-eval'; connect-src 'self';"}`
+    value: `default-src 'self'; base-uri 'self'; img-src 'self' data: https://cdn.shopify.com; ${isProd ? '' : "script-src 'self' 'unsafe-eval'; connect-src 'self'; style-src 'self' 'unsafe-inline';"}`
   }
 ]
 
