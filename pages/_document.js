@@ -9,7 +9,7 @@ const generateCsp = () => {
   hash.update(v4())
   const nonce = hash.digest('base64')
 
-  const csp = `default-src 'self'; base-uri 'self'; img-src 'self' https://cdn.shopify.com; ${isProd ? '' : "script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src 'self'"}`
+  const csp = `default-src 'self'; base-uri 'self'; img-src 'self' data: https://cdn.shopify.com; ${isProd ? '' : "script-src 'self' 'unsafe-eval'; connect-src 'self'; style-src 'self' 'unsafe-inline';"}`
 
   return { csp, nonce }
 }
@@ -20,13 +20,13 @@ class MyDocument extends Document {
 
     return (
       <Html lang="en">
-        <Head>
-          {/* <meta property="csp-nonce" content={nonce} /> */}
-          {/* <meta httpEquiv="Content-Security-Policy" content={csp} /> */}
+        <Head nonce={nonce}>
+          <meta property="csp-nonce" content={nonce} />
+          <meta httpEquiv="Content-Security-Policy" content={csp} />
         </Head>
         <body>
           <Main />
-          <NextScript />
+          <NextScript nonce={nonce} />
         </body>
       </Html>
     )

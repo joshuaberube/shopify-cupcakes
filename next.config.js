@@ -9,10 +9,10 @@ const securityHeaders = [
     key: 'Referrer-Policy',
     value: 'strict-origin-when-cross-origin'
   },
-  {
-    key: 'Content-Security-Policy',
-    value: `default-src 'self'; base-uri 'self'; img-src 'self' data: https://cdn.shopify.com; ${isProd ? '' : "script-src 'self' 'unsafe-eval'; connect-src 'self'; style-src 'self' 'unsafe-inline';"}`
-  }
+  // {
+  //   key: 'Content-Security-Policy',
+  //   value: `default-src 'self'; base-uri 'self'; img-src 'self' data: https://cdn.shopify.com; ${isProd ? '' : "script-src 'self' 'unsafe-eval'; connect-src 'self'; style-src 'self' 'unsafe-inline';"}`
+  // }
 ]
 
 module.exports = {

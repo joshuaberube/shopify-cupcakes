@@ -4,6 +4,40 @@ import Product from '../components/Product'
 
 export const getStaticProps = async () => {
   const products = await client.product.fetchAll()
+  // {
+  //   shop {
+  //     name
+  //   }
+  //   collection(handle: "cupcakes") {
+  //     products(first: 6) {
+  //       edges {
+  //         node {
+  //           id
+  //           description
+  //           title
+  //           images(first: 1) {
+  //             edges {
+  //               node {
+  //                 src
+  //               }
+  //             }
+  //           }
+  //           variants(first: 4) {
+  //             edges {
+  //               node {
+  //                 id
+  //                 title
+  //                 priceV2 {
+  //                   amount
+  //                 }
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   return {
     props: {
