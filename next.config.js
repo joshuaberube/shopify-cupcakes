@@ -10,7 +10,8 @@ const csp = `
   prefetch-src 'self';
   frame-src 'none';
   frame-ancestors 'none';
-  form-action 'none'
+  form-action 'none';
+  require-trusted-types-for 'script'
 `
 
 const securityHeaders = [
