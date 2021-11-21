@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const Product = ({product: {images, title, description, handle}}) => {
+  console.log(images[0].src)
   return (
     <li>
       <Link href={`/products/${handle}`} passHref>

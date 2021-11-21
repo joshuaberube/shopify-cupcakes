@@ -8,7 +8,8 @@ export const getStaticProps = async () => {
   return {
     props: {
       products: JSON.parse(JSON.stringify(products))
-    }
+    },
+    revalidate: 1800
   }
 }
 

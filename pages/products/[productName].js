@@ -10,7 +10,8 @@ export const getStaticProps = async context => {
   return {
     props: {
       product: JSON.parse(JSON.stringify(product))
-    }
+    },
+    revalidate: 1800
   }
 }
 
@@ -37,7 +38,7 @@ const ProductPage = ({product: {images, title, description, options, variants}})
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Image src={images[0].src} alt={title} width="300px" height="300px" />
+        <Image src={images[0].src} alt={title} width="300px" height="300px" priority />
         <h2>{title}</h2>
         <p>{description}</p>
         <p>${productPrice}</p>
